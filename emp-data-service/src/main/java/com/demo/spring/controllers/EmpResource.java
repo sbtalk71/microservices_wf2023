@@ -1,30 +1,62 @@
 package com.demo.spring.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.spring.Emp;
 import com.demo.spring.repo.EmpRepository;
+import com.demo.spring.util.ResponseData;
 
 @RestController
+@RequestMapping("/emp")
 public class EmpResource {
 
 	@Autowired
 	private EmpRepository empRepository;
 
-	@RequestMapping(path="/emp/greet",method = RequestMethod.GET,produces = MediaType.TEXT_PLAIN_VALUE)
+	@RequestMapping(path = "/greet", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String greet() {
 		return "Hello from Spring REST";
 	}
-	
-	@RequestMapping(path="/emp/",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Emp> getAllEmps(){
-		return empRepository.findAll();
+
+	@RequestMapping(path = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Emp>> getAllEmps() {
+		System.out.println(this.empRepository.getClass().getName());
+		return ResponseEntity.ok(empRepository.findAll());
 	}
+
+	@GetMapping(path = "/{empid}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public ResponseEntity findById(@PathVariable("empid") int id) {
+
+		Optional<Emp> empOp = empRepository.findById(id);
+		if (empOp.isPresent()) {
+			return ResponseEntity.ok(empOp.get());
+		} else {
+			return ResponseEntity.status(404).body(new ResponseData("Employee Not Found"));
+		}
+	}
+
+	@PostMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseData> insert(@RequestBody Emp emp) {
+
+		if (empRepository.existsById(emp.getEmpId())) {
+			return ResponseEntity.ok(new ResponseData("Employee Exists"));
+		} else {
+			empRepository.save(emp);
+			return ResponseEntity.ok(new ResponseData("Employee Saved"));
+		}
+	}
+
 	
 }
