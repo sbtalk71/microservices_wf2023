@@ -6,12 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.spring.Emp;
@@ -58,5 +61,28 @@ public class EmpResource {
 		}
 	}
 
+	@PutMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseData> update(@RequestBody Emp emp) {
+
+		if (empRepository.existsById(emp.getEmpId())) {
+			empRepository.save(emp);
+			return ResponseEntity.ok(new ResponseData("Employee Updated"));
+		} else {
+			
+			return ResponseEntity.ok(new ResponseData("Employee Not Found"));
+		}
+	}
+	
+	@DeleteMapping(path = "/",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseData> remove(@RequestParam(name="empid",required = true) int id) {
+
+		if (empRepository.existsById(id)) {
+			empRepository.deleteById(id);
+			return ResponseEntity.ok(new ResponseData("Employee Deleted"));
+		} else {
+			
+			return ResponseEntity.ok(new ResponseData("Employee Not Found"));
+		}
+	}
 	
 }
