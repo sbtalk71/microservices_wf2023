@@ -1,0 +1,11 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: hr-app-reactive
+    
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
