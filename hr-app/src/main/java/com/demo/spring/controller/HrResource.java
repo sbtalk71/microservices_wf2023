@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.demo.spring.Emp;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @RestController
 
 public class HrResource {
@@ -19,9 +21,15 @@ public class HrResource {
 	RestTemplate rt;
 	
 	@GetMapping(path="/hr/emp/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	@CircuitBreaker(name="hr-app-finder",fallbackMethod = "getEmpInfoFallback")
 	public ResponseEntity getEmpInfo(@PathVariable("id") int id) {
-		
+		System.out.println("inside hr : getEmpInfo..");
 		return rt.getForEntity("http://emp-service/emp/"+id, Emp.class);
 		
+	}
+	
+	public ResponseEntity getEmpInfoFallback(int id,Exception ex) {
+		System.out.println("inside hr : getEmpInfo fallback..");
+		return ResponseEntity.ok("Service is down, please try later ");
 	}
 }

@@ -3,10 +3,13 @@ package com.demo.spring.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.ServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +42,10 @@ public class EmpResource {
 		return ResponseEntity.ok(empRepository.findAll());
 	}
 
-	@GetMapping(path = "/{empid}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
-	public ResponseEntity findById(@PathVariable("empid") int id) {
+	@GetMapping(path = "/{empid}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	public ResponseEntity findById(@PathVariable("empid") int id, ServletRequest req) {
+
+		System.out.println("Request Processessed By : " + req.getLocalAddr() + ":" + req.getLocalPort());
 
 		Optional<Emp> empOp = empRepository.findById(id);
 		if (empOp.isPresent()) {
@@ -68,21 +73,42 @@ public class EmpResource {
 			empRepository.save(emp);
 			return ResponseEntity.ok(new ResponseData("Employee Updated"));
 		} else {
-			
+
 			return ResponseEntity.ok(new ResponseData("Employee Not Found"));
 		}
 	}
-	
-	@DeleteMapping(path = "/",produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseData> remove(@RequestParam(name="empid",required = true) int id) {
+
+	@DeleteMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseData> remove(@RequestParam(name = "empid", required = true) int id) {
 
 		if (empRepository.existsById(id)) {
 			empRepository.deleteById(id);
 			return ResponseEntity.ok(new ResponseData("Employee Deleted"));
 		} else {
-			
+
 			return ResponseEntity.ok(new ResponseData("Employee Not Found"));
 		}
 	}
-	
+
+	@GetMapping(path = "/ex/{empid1}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	public ResponseEntity<Emp> findById2(@PathVariable("empid1") int id, ServletRequest req)
+			throws EmpNotFoundException {
+
+		System.out.println("Request Processessed By : " + req.getLocalAddr() + ":" + req.getLocalPort());
+
+		Optional<Emp> empOp = empRepository.findById(id);
+		if (empOp.isPresent()) {
+			return ResponseEntity.ok(empOp.get());
+		} else {
+			throw new EmpNotFoundException();
+		}
+	}
+
+	/*
+	@ExceptionHandler(EmpNotFoundException.class)
+	public ResponseEntity<ResponseData> handleMyException(EmpNotFoundException ex) {
+		return ResponseEntity.ok(new ResponseData("Employee Not Found in DB"));
+	}
+	*/
+
 }
