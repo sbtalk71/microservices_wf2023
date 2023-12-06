@@ -1,0 +1,39 @@
+server:
+  port: 9090
+  
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+  
+spring:
+  application:
+    name: gatway-service
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+      - id: emp_service
+        uri: lb://emp-service
+        predicates:
+        - Path=/emp/**
+        
+      - id: test_google
+        uri: http://www.google.co.in
+        predicates:
+        - Path=/redirect/**
+        
+      - id: hr_service
+        uri: lb://hr-service
+        predicates:
+         - Path=/hr/**
+        filters:
+         - name: CircuitBreaker
+           args:
+             name: hrService
+             fallbackUri: forward:/hrserviceFallback
+     
+        
+          

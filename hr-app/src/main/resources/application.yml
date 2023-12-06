@@ -21,6 +21,7 @@ resilience4j.circuitbreaker:
             minimumNumberOfCalls: 10
             waitDurationInOpenState: 50s
             failureRateThreshold: 50
+            automaticTransitionFromOpenToHalfOpenEnabled: true
             
 
 
@@ -33,3 +34,6 @@ management:
   endpoint:
     health:
       show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
