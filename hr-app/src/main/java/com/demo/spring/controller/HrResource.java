@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.demo.spring.Emp;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.micrometer.core.annotation.Timed;
 
 @RestController
 @RequestMapping("/hr")
@@ -23,9 +24,18 @@ public class HrResource {
 	
 	@GetMapping(path="/emp/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	@CircuitBreaker(name="hr-app-finder",fallbackMethod = "getEmpInfoFallback")
+	@Timed("hr.empinfo")
 	public ResponseEntity getEmpInfo(@PathVariable("id") int id) {
 		System.out.println("inside hr : getEmpInfo..");
 		return rt.getForEntity("http://emp-service/emp/"+id, Emp.class);
+		
+	}
+	
+	@GetMapping(path="/all",produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed("hr.allemps")
+	public ResponseEntity getAllData() {
+		System.out.println("inside hr : getEmpInfo..");
+		return rt.getForEntity("http://emp-service/emp/", String.class);
 		
 	}
 	
