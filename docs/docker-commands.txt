@@ -1,0 +1,355 @@
+    1  docker run -it ubuntu bash
+   36  sudo docker run -it ubuntu bash
+   37  docker
+   38  docker iamages
+   39  docker images
+   40  sudo docker images
+   41  docker run hello-world
+   42  sudo docker run hello-world
+   43  docker --host list 
+   44  sudo docker stats
+   45  docker
+   46  sudo docker stats
+   47  mysql
+   48  sudo docker ps
+   49  sudo docker stop mysql
+   50  sudo docker stop d9604c4e631b
+   51  sudo docker pull mysql
+   52  sudo docker images
+   53  docker run -i  mysql bash
+   54  sudo docker run -i  mysql bash
+   55  clear
+   56  sudo docker run -it  mysql bash
+   57  clear
+   58  sudo docker ps
+   59  sudo docker list
+   60  sudo docker images
+   61  cd /var/lib/docker/
+   62  ls
+   63  sudo ls
+   64  sudo cd containers
+   65  sudo ls
+   66  sudo ls containers
+   67  sudo ls volumes
+   68  sudo systemctl stop docker
+   69  cd
+   70  clear
+   71  docker run it mysql bash
+   72  sudo systemctl start docker
+   73  ps -ef|docker
+   74  sudo ps -ef|grep docker
+   75  clear
+   76  sudo docker run -it mysql bash
+   77  sudo  systemctl stop docker
+   78  java -jar gs-spring-boot-docker-0.1.0.jar 
+   79  chmod 777 gs-spring-boot-docker-0.1.0.jar 
+   80  java -jar gs-spring-boot-docker-0.1.0.jar 
+   81  sudo docker ps
+   82  sudo docker stop 9ea6ad16f0d4
+   83  sudo docker rmi -f bootapp
+   84  clear
+   85  sudo docker ps
+   86  sudo docker stop bootapp1
+   87  sudo docker stop 46fa4b6d1c7f
+   88  sudo docker build -t bootapp .
+   89  sudo docker run bootapp
+   90  clear
+   91  sudo docker -p 8080:8080 run bootapp
+   92  sudo docker run -p 8080:8080 bootapp
+   93  sudo docker run bootapp
+   94  sudo docker build
+   95  sudo docker build -t bootapp
+   96  ls
+   97  sudo chmod 777 gs-spring-boot-docker-0.1.0.jar 
+   98  sudo docker build -t bootapp .
+   99  sudo systemctl start docker
+  100  sudo docker build -t bootapp .
+  101  sudo docker ps
+  102  sudo docker images
+  103  sudo docker run bootapp 
+  104  sudo docker run -i bootapp 
+  105  docker
+  106  sudo docker rm bootapp
+  107  sudo docker images
+  108  sudo docker rm 66b2ddbe950e
+  109  clear
+  110  sudo docker rmi Image bootapp
+  111  sudo docker rmi bootapp bootapp
+  112  sudo docker ps
+  113  docker
+  114  clear
+  115  sudo docker -1
+  116  sudo docker -a
+  117  sudo docker -images
+  118  sudo docker images
+  119  clear
+  120  sudo docker rm 66b2ddbe950e
+  121  sudo docker rm 66b2ddbe950e 66b2ddbe950e
+  122  sudo docker rmi bootapp
+  123  sudo docker rmi -f bootapp
+  124  sudo docker images
+  125  sudo docker build -t bootapp .
+  126  sudo docker run bootapp
+  127  clear
+  128  java -jar gs-spring-boot-docker-0.1.0.jar 
+  129  clear
+  130  sudo docker build -t bootapp1 .
+  131  sudo docker run bootapp
+  132  sudo docker run bootapp1
+  133  clear
+  134  sudo docker run bootapp1
+  135  clear
+  136  sudo docker rmi -f bootapp1
+  137  sudo docker ps
+  138  sudo docker stop 4efe1b61e649
+  139  sudo docker ps
+  140  sudo docker stop 9aab6174c35b
+  141  sudo docker ps
+  142  sudo docker stop eeb6dccf4942
+  143  sh -c java 
+  144  exit
+  145  sh -c
+  146  sh --help
+  147  sh clear
+  148  sh -c clear
+  149  sh -c java -jar /home/training/Desktop/mydocker/app.jar 
+  150  sh -c 'java -jar /home/training/Desktop/mydocker/app.jar' 
+  151  ls
+  152  sudo docker build -t myapp
+  153  sudo docker build -t myapp .
+  154  sudo systemctl start docker
+  155  sudo docker build -t myapp .
+  156  docker images;
+  157  docker images
+  158  sudo docker images
+  159  docker run -i myapp
+  160  sudo docker run -i myapp
+  161  sudo docker run -p 8080:8080 -i myapp
+  162  sudo docker ps
+  163  sudo docker stop 0220bd62fc24
+  164  sudo docker ps
+  165  sudo docker stop 0d944bb03cb0 
+  166  ssh 
+  167  ssh localhost
+  168  sudo docker ps
+  169  sudo docker stop 0d944bb03cb0 
+  170  sudo docker stop 9fc6bbad8b6a 
+  171  ssh localhost
+  172  ssh secret@localhost
+  173  ssh 
+  174  sudo docker pull eclipse/ubuntu_jdk8
+  175  sudo docker images
+  176  sudo docker run -it eclipse/ubuntu_jdk8
+  177  sudo docker run -i eclipse/ubuntu_jdk8
+  178  sudo docker run -p 8080:8080 -i eclipse/ubuntu_jdk8
+  179  sudo docker run -p 8080:8080 -i eclipse/ubuntu_jdk8 bash
+  180  sudo docker run -p 8080:8080,22:22 -i eclipse/ubuntu_jdk8 bash
+  181  sudo docker run -p 8080:8080 22:22 -i eclipse/ubuntu_jdk8 bash
+  182  sudo docker run -p  22:22 -i eclipse/ubuntu_jdk8 bash
+  183  sudo docker ps
+  184  sudo docker stop fb64fe38bbc2 
+  185  ssh user@localhost
+  186  ssh user
+  187  sudo ssh user@localhost
+  188  clear
+  189  sudo docker ps
+  190  sudo docker stop 790f01782e11 
+  191  sudo docker run -p 8080:8080 22-p 22:22 -i eclipse/ubuntu_jdk8 start
+  192  sudo docker pull eclipse/che
+  193  sudo docker run eclipse/che start
+  194  su
+  195  sudo docker run -p 8080:8080 -p 22:22 -i eclipse/ubuntu_jdk8
+  196  docker run -p 8080:8080 -p 22:22 -it --rm -v /var/run/docker.sock:/var/run/docker.sock eclipse/che start
+  197  sudo docker run -p 8080:8080 -p 22:22 -it --rm -v /var/run/docker.sock:/var/run/docker.sock eclipse/che start
+  198  sudo docker run -p 8080:8080 -p 22:22 -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/data eclipse/che start
+  199  sudo docker run -p 22:22 -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/data eclipse/che start
+  200  sudo docker run -p 22:22 -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/data eclipse/che info --network
+  201  ifconfig
+  202  clear
+  203  sudo systemctl start docker
+  204  sudo docker images
+  205  sudo docker rmi -f eclipse/ubuntu_jdk8 
+  206  sudo docker rmi -f eclipse/*
+  207  sudo docker rmi -f eclipse/che
+  208  sudo docker rmi -f eclipse/che-server
+  209  sudo docker images
+  210  sudo docker rmi -f eclipse/che-server:5.14.0
+  211  sudo docker rmi -f eclipse/che-action:5.14.0
+  212  sudo docker rmi -f eclipse/che-test:5.14.0
+  213  sudo docker rmi -f eclipse/che-mount:5.14.0
+  214  sudo docker rmi -f eclipse/che-ip:5.14.0
+  215  sudo docker images
+  216  sudo docker rmi -f eclipse/che-dir:5.14.0
+  217  sudo docker images
+  218  sudo docker rmi -f eclipse/che-init:5.14.0
+  219  clear
+  220  sudo docker images
+  221  sudo docker run -it ubuntu bash
+  222  sudo docker ps
+  223  clear
+  224  sudo docker images
+  225  sudo docker run -it --network mynet ubuntu bash
+  226  sudo docker network create mynet
+  227  sudo docker run -it --network mynet ubuntu bash
+  228  sudo docker connect mynet
+  229  sudo docker network connect mynet
+  230  sudo docker ps
+  231  sudo docker network connect mynet 6431321f8beb
+  232  sudo docker build -t alpine-net .
+  233  sudo docker run -i alpine
+  234  exit
+  235  sudo systemctl start docker
+  236  clear
+  237  sudo docker images
+  238  sudo yum -y install nginx
+  239  sudo yum install epel-release
+  240  sudo yum -y install nginx
+  241  sudo service ninx start
+  242  sudo systemctl start nginx
+  243  sudo systemctl stop nginx
+  244  sudo uname -a
+  245  cd /boot/
+  246  ls
+  247  cd
+  248  clear
+  249  sudo docker ps
+  250  docker stop myubuntu
+  251  sudo docker stop myubuntu
+  252  sudo docker stop c10a4f78606e
+  253  sudo docker restart c10a4f78606e
+  254  sudo docker ps
+  255  sudo docker stop c10a4f78606e
+  256  clear
+  257  sudo docker images
+  258  sudo docker rmi -f my*
+  259  sudo docker rmi -f myubuntu
+  260  sudo docker rmi -f mycentos
+  261  sudo docker rmi -f myapp
+  262  clear
+  263  sudo docker images
+  264  sudo docker ps
+  265  exit
+  266  sudo systemctl start docker
+  267  sudo docker build -t mycentos
+  268  sudo docker build -t mycentos .
+  269  sudo docker run -it --name mycentos7 mycentos
+  270  sudo docker build -t myubuntu .
+  271  sudo docker images
+  272  clear
+  273  sudo docker build -t myubuntu .
+  274  sudo docker run -it testubuntu myubuntu:latest
+  275  sudo docker run -it testubuntu myubuntu
+  276  sudo docker run -it --name testubuntu myubuntu
+  277  exit
+  278  sudo systemctl start docker
+  279  sudo docker images
+  280  sudo docker run -it alpine
+  281  sudo docker run -it ubuntu
+  282  sudo docker build alpine-java .
+  283  sudo docker build -t alpine-java .
+  284  clear
+  285  sudo docker build -t alpine-java .
+  286  ls -al
+  287  sudo docker build -t alpine-java .
+  288  sudo systemctl restart docker
+  289  sudo docker build -t alpine-java .
+  290  cd ../
+  291  cd mydocker/
+  292  sudo docker build -t boot-app .
+  293  sudo docker build -t alpine-java .
+  294  cd ../alpine-java/
+  295  sudo docker build -t alpine-java .
+  296  clear
+  297  echo "Hi this is a test" >> demo.txt
+  298  sudo systemctl start docker
+  299  sudo docker build -t test-image .
+  300  sudo docker run -it test-iamge 
+  301  sudo docker run -it test-image
+  302  sudo docker run -it test-iamge 
+  303  sudo docker run -it test-image
+  304  ls -al
+  305  gnuzip
+  306  cd
+  307  clear
+  308  sudo docker ps
+  309  sudo docker cp /home/training/Desktop/alpine-java/jdk-8u91-linux-x64.tar.gz b2543fbea431:/usr/
+  310  cd Desktop/
+  311  cd alpine-java/
+  312  sudo docker build -t alpine-java
+  313  sudo docker build -t alpine-java .
+  314  sudo docker run -it alpine-java
+  315  sudo docker images
+  316  sudo docker rmi -f alpine-java
+  317  clear
+  318  sudo docker build -t alpine-java .
+  319  sudo docker run -it alpine-java
+  320  clear
+  321  sudo docker build -t alpine-java .
+  322  clear
+  323  sudo docker build -t alpine-java .
+  324  clear
+  325  sudo docker run -i alpine
+  326  clear
+  327  sudo docker build -t alpine-java .
+  328  sudo docker run -i alpine-java
+  329  sudo docker images
+  330  sudo docker rmi -f 6213c3fa5571
+  331  sudo docker rmi -f alpine-java
+  332  sudo docker rmi -f test-image
+  333  clear
+  334  sudo docker images
+  335  sudo docker rmi -f 4f4026454cb4
+  336  sudo docker images
+  337  sudo docker rmi -f boot-app
+  338  sudo docker rmi -f bootapp
+  339  sudo docker rmi -f b26b55d6b6a0 
+  340  clear
+  341  sudo docker iamages
+  342  sudo docker images
+  343  sudo docker rmi -f f8ed2712cbfa
+  344  sudo docker images
+  345  sudo docker rmi -f e59bd2636de6
+  346  clear
+  347  sudo docker images
+  348  sudo docker cp
+  349  sudo docker run -it alpine:3.4
+  350  sudo docker ps
+  351  sudo docker build -t ubuntu-java .
+  352  sudo docker run -it ubuntu-java
+  353  sudo docker images
+  354  sudo docker rmi -f ubuntu-java
+  355  sudo docker rmi -f alpine-java
+  356  clear
+  357  sudo docker build -t ubuntu-tomcat .
+  358  sudo docker run -it ubuntu-tomcat
+  359  sudo docker rmi -f ubuntu-tomcat
+  360  clear
+  361  sudo docker build -t ubuntu-tomcat .
+  362  sudo docker images
+  363  sudo docker rmi -f 0a46ef81c235
+  364  clear
+  365  sudo docker build -t ubuntu-tomcat .
+  366  clear
+  367  sudo docker images 
+  368  sudo docker rmi -f 91efa7c7a977
+  369  clear
+  370  sudo docker build -t ubuntu-tomcat
+  371  sudo docker build -t ubuntu-tomcat .
+  372  sudo docker run -it ubuntu-tomcat
+  373  exit
+  374  sudo systemctl start docker
+  375  sudo systemctl stop docker
+  376  sudo docker run -it ubuntu-tomcat
+  377  clear
+  378  sudo docker images
+  379  sudo docker rmi -f a0bbbbb4493e
+  380  sudo docker rmi -f ubuntu-tomcat
+  381  clear
+  382  sudo docker build -t ubuntu-tomcat .
+  383  clear
+  384  sudo docker run
+  385  sudo docker run --help
+  386  clear
+  387  sudo docker run -it ubuntu-tomcat
+  388  history
+  389  history > docker-commands.txt

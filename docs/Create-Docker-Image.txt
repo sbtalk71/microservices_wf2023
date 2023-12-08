@@ -1,0 +1,36 @@
+Create and Run a Docker Image for Spring boot microservice
+
+1. Log in to Linux 
+2. Create a folder named boot-app on the Desktop (/home/training/Desktop/boot-app)
+3. Build your Spring boot application and copy the resultant JAR file to boot-app (Created above)  and rename the JAR File as 'app.jar'.
+4. Creat a text file in boot-app folder named 'Dockerfile' and make the following entries:
+
+FROM frolvlad/alpine-oraclejdk8:slim
+VOLUME /tmp
+ADD app.jar app.jar
+CMD java -jar app.jar
+
+5. start docker daemon
+$sudo systemctl start docker
+
+6. CD to /home/training/Desktop/boot-app and run the docker build command as below:
+
+$sudo docker build -t mybootimage .
+
+now you get a docker image named mybootimage
+
+7. Run the image using the given command
+
+$sudo docker run -it -p 8282:8080 mybootimage
+(-p is mapping image port 8080 to os level external port 8282)
+
+8. Open another terminal and verify the docker image is running by giving the following command
+$sudo docker ps
+
+9. Open the Web Browser and type the following URL to test
+http://localhost:8282/demo/message?name=Scott
+
+You should get a REST message as Reply.
+
+10.
+
